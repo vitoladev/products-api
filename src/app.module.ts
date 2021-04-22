@@ -1,3 +1,4 @@
+import { ProductsModule } from './products/products.module';
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
@@ -16,9 +17,10 @@ import { ConfigModule } from '@nestjs/config';
         password: process.env.DB_PASSWORD,
         database: process.env.DB_NAME,
         entities: [__dirname + '/**/*.entity{.ts,.js}'],
-        synchronize: false,
+        synchronize: true,
       }),
     }),
+    ProductsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
